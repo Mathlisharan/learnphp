@@ -16,32 +16,15 @@ if (!$conn) {
 }
 
 $uname=$_POST['username'];
-$pass=$_POST['password'];
+$pass=md5($_POST['password']);
 $Gender=$_POST['gender'];
 
-$sql="INSERT INTO form (`username`,`password`,`gender`)
-VALUES('$uname','$pass','$Gender')";
+$sql="INSERT INTO form (`username`,`password`,`gender`)VALUES('$uname','$pass','$Gender')";
 
 if (mysqli_query($conn, $sql)) {
   echo "New record added successfully<br><br>";
-  
-} else {
+  } else {
   echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
-
-$sql = "SELECT * FROM form";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-  // output data of each row
-  while($row = $result->fetch_assoc()) {
-    echo "Username:- " . $row["username"]."<br>"." Gender:- " . $row["gender"]."<br><br><br>";
-    
-  }
-} else {
-  echo "0 results";
-}
-
-
 mysqli_close($conn);
 ?>

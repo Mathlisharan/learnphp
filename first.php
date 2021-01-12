@@ -1,3 +1,5 @@
+
+
 <html>
 <head>
 <title> PHP </title>
@@ -7,7 +9,7 @@
 
     <h1>Registration Form</h1>
 
-    <form action="profile.php" method="post">
+    <form action="print.php" method="post">
         Username:<input type = "text" name="username" required><br><br>
         Password:<input type = "password" name="password" required><br><br>
         Gender:
@@ -19,4 +21,7 @@
 
 </body>
 
+
+
 </html>
+
